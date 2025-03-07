@@ -1,28 +1,12 @@
-# Trie-Based Keyword Highlighter  
+# React + Vite
 
-This project is a **Vite + React** application that provides **multiple search options** and a **live keyword highlighting** feature using a **Trie tree**.  
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features  
-- 🔍 **Multiple Keyword Search** – Users can input multiple keywords for highlighting.  
-- ✍️ **Live Text Processing** – A text field allows users to enter a long paragraph, and matching keywords are automatically **highlighted in bold**.  
-- ⚡ **Efficient Trie-Based Matching** – Uses a **Trie data structure** to efficiently find and highlight overlapping and consecutive keyword occurrences.  
-- 🚀 **Optimized Performance** – Merges overlapping keyword matches to avoid redundant highlights.  
+Currently, two official plugins are available:
 
-## 🛠️ Technologies Used  
-- **Vite** – Fast build tool for modern web development  
-- **React** – UI framework for dynamic rendering  
-- **useState & useEffect** – For state management and real-time updates  
-- **JavaScript Trie Implementation** – Efficient keyword searching  
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 📌 How It Works  
-1. **Users enter search keywords.**  
-2. **They input a long paragraph.**  
-3. **The app processes the text and highlights all matching keywords in bold.**  
-4. **It ensures that overlapping keywords do not cause duplicate highlights.**  
+## Expanding the ESLint configuration
 
-## 🚀 Getting Started  
-
-### 1️⃣ Clone the repository  
-```sh
-git clone <repo-url>
-cd my-search-app
+If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
