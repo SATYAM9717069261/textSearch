@@ -25,4 +25,4 @@ This project is a **Vite + React** application that provides **multiple search o
 ### 1️⃣ Clone the repository  
 ```sh
 git clone https://github.com/SATYAM9717069261/textSearch.git
-cd my-search-app
+cd textSearch
