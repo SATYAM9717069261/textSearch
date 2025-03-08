@@ -8,20 +8,16 @@ export default function App() {
     const [searchFields, setSearchFields] = useState([""]);
     const [text, setText] = useState("");
     const [isPopupOpen, setPopupOpen] = useState(false);
-    const [tempSearch, setTempSearch] = useState([])
 
     const openPopup = () => {
-        setTempSearch([]);
         setPopupOpen(true);
     };
-    const closePopup = () => {
-        setSearchFields([...searchFields, ...tempSearch]);
+    const closePopup = (tempSearch) => {
+        setSearchFields([...tempSearch]);
         setPopupOpen(false);
     };
 
-    const addTempSearchField = () => {
-        setTempSearch([...tempSearch, ""]);
-    };
+    console.log(" searchFields =>", searchFields)
     return (
         <div className="p-6 w-full min-h-screen bg-gray-900 text-white flex flex-col gap-4">
             {/* Header */}
@@ -41,14 +37,12 @@ export default function App() {
                     <Button onClick={() => setPopupOpen(false)} className="mt-3 bg-red-500 hover:bg-red-600 px-4 py-2 rounded-md">Close</Button>
                 </div>
             </Dialog>
-            <TagList />
+            <TagList searchFields={searchFields} setSearchFields={setSearchFields} />
             {/* Search Fields */}
             <SearchDialog
                 isOpen={isPopupOpen}
                 onClose={closePopup}
-                tempSearch={tempSearch}
-                setTempSearch={setTempSearch}
-                addTempSearchField={addTempSearchField}
+                searchFields={searchFields}
             />
             {/* Paragraph Input */}
             <div

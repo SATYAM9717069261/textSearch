@@ -1,8 +1,13 @@
 import { Dialog } from "./dialog";
 import { Button } from "./button";
 import { Input } from "./input";
+import { useEffect, useState } from "react";
 
-export default function SearchDialog({ isOpen, onClose, tempSearch, setTempSearch, addTempSearchField, }) {
+export default function SearchDialog({ isOpen, onClose, searchFields }) {
+    const [tempSearch, setTempSearch] = useState([...searchFields])
+    useEffect(() => {
+        setTempSearch(searchFields)
+    }, [searchFields])
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
             <div className="p-4 bg-gray-800 text-white rounded-lg shadow-xl max-w-lg mx-auto">
@@ -14,6 +19,7 @@ export default function SearchDialog({ isOpen, onClose, tempSearch, setTempSearc
                         <Input
                             key={index}
                             type="text"
+                            value={tempSearch[index]}
                             placeholder="Enter keyword..."
                             className="bg-gray-700 border border-gray-600 text-white"
                             onChange={(e) => {
@@ -24,14 +30,15 @@ export default function SearchDialog({ isOpen, onClose, tempSearch, setTempSearc
                         />
                     ))}
                 </div>
-
                 {/* Add New Search Field Button */}
-                <Button onClick={addTempSearchField} className="mt-3 bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md">
+                <Button onClick={() => setTempSearch(prev => {
+                    return [...prev, ""];
+                })} className="mt-3 bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md">
                     + Add More
                 </Button>
 
                 {/* Save & Close Popup */}
-                <Button onClick={onClose} className="mt-3 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md">
+                <Button onClick={() => onClose(tempSearch)} className="mt-3 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md">
                     Save & Close
                 </Button>
             </div>

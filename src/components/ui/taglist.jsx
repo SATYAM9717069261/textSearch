@@ -1,19 +1,15 @@
-import { useState } from "react";
-export default function TagList() {
-    const [tags, setTags] = useState([
-        "Low Price",
-        "Early Departure",
-        "Washroom",
-        "Seater",
-        "Late Departure",
-        "Sleeper",
-        "Boarding Point",
-        "Dropping Point",
-        "Min. Travel Time",
-    ]);
+import { useEffect, useState } from "react";
+export default function TagList({ searchFields, setSearchFields }) {
+    const [tags, setTags] = useState([...searchFields]);
+    useEffect(() => {
+        setTags(searchFields);
+    }, [searchFields]);
+
+    if (tags[0] == "")
+        return;
 
     const removeTag = (index) => {
-        setTags(tags.filter((_, i) => i !== index));
+        setSearchFields(tags.filter((_, i) => i !== index));
     };
 
     return (
