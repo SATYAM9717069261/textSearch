@@ -75,7 +75,7 @@ The final implementation is both clean and efficient, ensuring proper bold forma
 
 
 Implentation
-
+```
 class Tree {
     constructor(value) {
         this.childs = []
@@ -226,7 +226,7 @@ function runTests() {
 }
 
 runTests();
-
+```
 
 ### 1️⃣ Clone the repository  
 ```sh
