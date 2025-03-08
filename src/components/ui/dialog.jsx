@@ -13,4 +13,3 @@ export function Dialog({ open, onOpenChange, children }) {
         </div>
     );
 }
-

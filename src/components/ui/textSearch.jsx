@@ -3,7 +3,7 @@ import { Button } from "./button";
 import { Input } from "./input";
 import { useEffect, useState } from "react";
 
-export default function SearchDialog({ isOpen, onClose, searchFields }) {
+export default function SearchDialog({ isOpen, onClose, searchFields, closeSearchPopup }) {
     const [tempSearch, setTempSearch] = useState([...searchFields])
     useEffect(() => {
         setTempSearch(searchFields)
@@ -38,7 +38,7 @@ export default function SearchDialog({ isOpen, onClose, searchFields }) {
                 </Button>
 
                 {/* Save & Close Popup */}
-                <Button onClick={() => onClose(tempSearch)} className="mt-3 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md">
+                <Button onClick={() => closeSearchPopup(tempSearch)} className="mt-3 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md">
                     Save & Close
                 </Button>
             </div>

@@ -1,2 +1,6 @@
 @import "tailwindcss";
+bold{
+    color:#fff;
+    background:#000;
+}
 

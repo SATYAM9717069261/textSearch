@@ -3,21 +3,29 @@ import { Dialog } from "./components/ui/dialog";
 import { Button } from "./components/ui/button";
 import SearchDialog from "./components/ui/textSearch";
 import TagList from "./components/ui/taglist";
+import TextArea from "./components/ui/textArea";
 
 export default function App() {
-    const [searchFields, setSearchFields] = useState([""]);
-    const [text, setText] = useState("");
+    const [searchFields, setSearchFields] = useState([
+        "substrings",
+        "Solution Approach",
+        "Efficiently Adding Bold Tags ",
+        "Building the Trie ",
+        "A boolean flag to mark the end ",
+        "Trie"
+    ]);
     const [isPopupOpen, setPopupOpen] = useState(false);
 
     const openPopup = () => {
         setPopupOpen(true);
     };
-    const closePopup = (tempSearch) => {
+    const closePopup = () => {
+        setPopupOpen(false);
+    }
+    const closeSearchPopup = (tempSearch) => {
         setSearchFields([...tempSearch]);
         setPopupOpen(false);
     };
-
-    console.log(" searchFields =>", searchFields)
     return (
         <div className="p-6 w-full min-h-screen bg-gray-900 text-white flex flex-col gap-4">
             {/* Header */}
@@ -26,7 +34,6 @@ export default function App() {
                 <Button onClick={openPopup} className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg shadow-md">
                     + Add Search Field
                 </Button>
-                <Button onClick={() => setPopupOpen(true)} className="bg-white text-blue-600 font-semibold px-4 py-2 rounded-lg shadow-md">View Source Code</Button>
             </div>
 
             {/* Source Code Popup */}
@@ -43,14 +50,10 @@ export default function App() {
                 isOpen={isPopupOpen}
                 onClose={closePopup}
                 searchFields={searchFields}
+                closeSearchPopup={closeSearchPopup}
             />
             {/* Paragraph Input */}
-            <div
-                contentEditable
-                className="w-full min-h-[150px] p-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500"
-                placeholder="Enter paragraph here..."
-                onInput={(e) => setText(e.currentTarget.innerHTML)}
-            ></div>
+            <TextArea searchFields={searchFields} />
         </div>
     );
 }
