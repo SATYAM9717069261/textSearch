@@ -230,9 +230,6 @@ runTests();
 
 ### 1️⃣ Clone the repository  
 ```sh
-git clone <repo-url>
-cd my-search-app
-
 git clone https://github.com/SATYAM9717069261/textSearch.git
 cd textSearch
 
