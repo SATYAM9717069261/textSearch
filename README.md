@@ -74,7 +74,7 @@ M is the total length of all words in words (as we build the Trie and search it 
 The final implementation is both clean and efficient, ensuring proper bold formatting of matching substrings. 🚀
 
 
-Implentation
+Implementation
 ```
 class Tree {
     constructor(value) {
